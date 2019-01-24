@@ -8,11 +8,16 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       flash[:notice] = "User created!"
+    if @user.save
+      log_in @user
+      flash[:success] = "Welcome"
+      redirect_to @user
     else
       flash[:notice] = "#{@user.errors.messages}"
       render 'new'
     end
   end
+end
 
   def show
     @user = User.find_by(id: params[:id])
