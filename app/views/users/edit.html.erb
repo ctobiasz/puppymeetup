@@ -1,2 +1,18 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit Account</h1>
+
+<%= form_for(@user) do |u| %>
+
+  <%= u.text_field :first_name, placeholder: "First Name"%><br />
+
+  <%= u.text_field :last_name, placeholder: "Last Name" %><br />
+
+  <%= u.text_field :username, placeholder: "Username" %><br />
+
+  <%= u.email_field :email, placeholder: "Email" %><br />
+
+  <%= u.password_field :password, placeholder: "Password" %><br />
+
+  <%= u.password_field :password_confirmation, placeholder: "Password Confirmation" %><br />
+
+  <%= u.submit %>
+<% end %>
