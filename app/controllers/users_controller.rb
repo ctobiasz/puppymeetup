@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    if logged_in?
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def create
@@ -8,7 +13,6 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       flash[:notice] = "User created!"
-    if @user.save
       log_in @user
       flash[:success] = "Welcome"
       redirect_to @user
@@ -17,10 +21,14 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-end
+
 
   def show
+    if logged_in?
     @user = User.find_by(id: params[:id])
+  else
+      redirect_to root_path
+    end
   end
 
   def index
@@ -29,6 +37,9 @@ end
 
   def edit
     @user = User.find_by(id: params[:id])
+    if current_user.id != @user.id
+      redirect_to root_path
+    end
   end
 
   def update
