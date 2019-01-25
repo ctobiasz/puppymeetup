@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :avatar
 
   validates :first_name, :last_name, presence: true
   validates :username, presence: true, uniqueness: true, :uniqueness => { :case_sensitive => false }

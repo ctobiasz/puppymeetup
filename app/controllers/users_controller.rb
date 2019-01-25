@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    if logged_in?
-      redirect_to root_path
-    else
-      render 'new'
-    end
+
   end
 
   def create
@@ -24,7 +20,7 @@ class UsersController < ApplicationController
 
 
   def show
-    if logged_in?
+    if current_user != nil
     @user = User.find_by(id: params[:id])
   else
       redirect_to root_path
@@ -32,7 +28,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
+    if current_user != nil
+      @user = User.all
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, :purchased)
+    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, :purchased, :avatar)
   end
 
 end
