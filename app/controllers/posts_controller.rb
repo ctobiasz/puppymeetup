@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  def index
+  def new
   end
 
   def show
@@ -8,6 +8,14 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def new
+  def index
   end
+
+  private
+
+  def post_params
+  params.require(:posts).permit(:name, :description, :picture)
+  end
+
+
 end
