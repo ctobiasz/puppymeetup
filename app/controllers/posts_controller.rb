@@ -6,14 +6,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @user = User.find(session[:user_id])
-    @post >> @user.posts
-    if post.valid?
+    @user.posts << @post
+    if @post.valid?
       @post.save
       flash[:notice] = "Puppy Date Activated!"
       redirect_to @user
     else
-      puts @post.error.messages
-      flash[:notce] = "#{@post.error.messages}"
+      puts "#{@post.errors.messages}"
+      flash[:notice] = "#{@post.errors.messages}"
       render 'new'
     end
   end
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:posts).permit(:name, :description, :picture)
+    params.require(:post).permit(:name, :description, :picture)
   end
 
   def post_edit_params

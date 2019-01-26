@@ -1,2 +1,21 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Let's make some friends!</h1>
+
+
+<%= form_for(@post) do |post| %>
+
+<p>
+<%= post.text_field :name, placeholder: "ex. Puppy needs a new friend!"%>
+</p>
+
+<p>
+<%= post.text_area :description, placeholder: "Where do you wanna go and/or meetup. What does your pupper like to do?"%>
+</p>
+
+<p>
+<%= post.file_field :picture, direct_upload: true, id: "fileupload" %>
+</p>
+
+<p>
+<%= post.submit "Playtime Activate" %>
+</p>
+<% end %>
