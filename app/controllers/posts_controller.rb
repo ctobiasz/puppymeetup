@@ -46,7 +46,8 @@ class PostsController < ApplicationController
 
   def index
     if current_user != nil
-     @post = Post.paginate(page: params[:page], per_page: 20)
+     # @post = Post.paginate(page: params[:page], per_page: 20)
+     @posts  = Post.all
    else
      redirect_to root_path
    end
