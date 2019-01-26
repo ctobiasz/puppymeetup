@@ -1,2 +1,22 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Locations</h1>
+
+<h1>Let's make some friends!</h1>
+
+
+<%= form_for(@location) do |loc| %>
+
+<p>
+<%= loc.text_field :address, placeholder: "What's the address?"%>
+</p>
+<p>
+<%= loc.text_field :latitude %>
+</p>
+<p>
+<%= loc.text_field :longitude %>
+</p>
+
+
+<p>
+<%= loc.submit "GO GO GO" %>
+</p>
+<% end %>

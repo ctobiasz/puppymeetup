@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'locations/new'
-  get 'locations/index'
-  get 'locations/show'
-  get 'locations/edit'
 # root 'pages#home'
 root 'sessions#new'
 
@@ -15,6 +11,7 @@ root 'sessions#new'
 resources :sessions
 resources :users
 resources :posts
+resources :locations
 
 get '/signup', to: 'users#new'
 
