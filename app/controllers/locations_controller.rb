@@ -5,10 +5,11 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(params[:location])
+    @location = Location.new(loc_params)
     if @location.save
       redirect_to @location, :notice => "Sucessfully created location."
     else
+      puts @location.errors.messages
       render :action => 'new'
     end
   end
@@ -23,6 +24,13 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+  end
+
+  private
+
+  def loc_params
+    params.require(:location).permit(:address)
+
   end
 
 
