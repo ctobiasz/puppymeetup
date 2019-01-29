@@ -4,7 +4,7 @@ Rails.application.routes.draw do
  mount ActionCable.server => '/cable'
 
  # root 'pages#home'
- root 'sessions#new'
+ root 'pages#home'
 
 resources :posts
 resources :locations
