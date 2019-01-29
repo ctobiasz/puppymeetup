@@ -19,16 +19,16 @@ class UsersController < ApplicationController
 
 
   def show
-    if current_user != nil
     @user = User.find_by(id: params[:id])
+    if session[:user_id] == @user.id
   else
-      redirect_to root_path
+    redirect_to current_user
     end
   end
 
   def index
-    if current_user != nil
       @user = User.all
+      if current_user == nil
     else
       redirect_to root_path
     end
@@ -47,6 +47,14 @@ class UsersController < ApplicationController
       flash[:notice] = "User updated"
        redirect_to @user
     end
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to login_path
+
   end
 
   private
