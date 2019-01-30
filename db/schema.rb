@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_01_28_165045) do
     t.string "name"
     t.text "description"
     t.integer "user_id"
+    t.string "location_string"
     t.boolean "purchased"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

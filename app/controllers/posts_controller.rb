@@ -67,11 +67,11 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:name, :description, :picture)
+    params.require(:post).permit(:name, :description, :picture, :location_string)
   end
 
   def post_edit_params
-    params.require(:post).permit(:name, :description, :purchased, :picture)
+    params.require(:post).permit(:name, :description, :purchased, :picture, :location_string)
   end
 
 

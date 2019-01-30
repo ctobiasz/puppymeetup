@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.integer :user_id
+      t.string :location_string
       t.boolean :purchased
 
       t.timestamps

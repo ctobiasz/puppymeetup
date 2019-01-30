@@ -12,11 +12,13 @@
 </p>
 
 <p>
+  <%= post.text_field :location_string, placeholder: "Where would you like to meet?" %>
+</p>
+
+<p>
 <%= post.file_field :picture, direct_upload: true, id: "fileupload" %>
 </p>
 
-<p>  
-</p>
 
 <p>
 <%= post.submit "Playtime Activate" %>

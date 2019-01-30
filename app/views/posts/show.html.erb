@@ -2,6 +2,12 @@
 
   <p><strong>Title: </strong><%= @post.name %></p>
   <p><strong>Description: </strong><%= @post.description%></p>
+  <p><strong>Location: </strong><%= @post.location_string %></p>
 
 
   <% end %>
+  <% locprofi = Location.create(address: @post.location_string )%>
+  <iframe width="300" height="300" frameborder="0" style="border:0"
+   src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= locprofi.latitude %>,<%= locprofi.longitude %>"
+   allowfullscreen>
+  </iframe>
