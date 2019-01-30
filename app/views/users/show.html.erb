@@ -13,11 +13,23 @@
  allowfullscreen>
 </iframe>
 
+<br>
+
+<% @user.posts.each do |post|%>
+<tr>
+<p> = = = = = = = =</p>
+<%= image_tag (post.picture) if post.picture.attached? %><br>
+<%= post.name %><br>
+<%= post.description %><br>
+
+<%= link_to 'Edit Post', edit_post_path(post) %>
+<%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
 
 
 
 
-
-
+<%= link_to "Delete Your Account", @user, method: :delete,
+                                    data: { confirm: "YOU CANNOT REVERSE THIS.  Are you sure you want to do this?" } %>
 <%= link_to "Find a Pup", new_post_path %>
 <%= link_to "Log out", "/logout", method: :delete %>

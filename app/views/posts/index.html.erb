@@ -1,9 +1,20 @@
-<h1>Puppy Date Galore!</h1>
+<h1>All Puppy Date Requests!</h1>
+<br>
+<br>
+<br>
 
 
+<p>
 <% @posts.each do |post|%>
+<%= image_tag (post.picture) if post.picture.attached? %><br>
+<%= post.name %><br>
+<%= post.description %><br>
 
-<%= post.name %>
-<%= post.description %>
+ <% unless session[:user_id] == post.user.id %>
 
+  <%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
+
+ <% end %>
+<br>
+<br>
 <% end %>

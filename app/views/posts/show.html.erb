@@ -1,2 +1,7 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+  <%if session[:user_id] == @post.user.id%>
+
+  <p><strong>Title: </strong><%= @post.name %></p>
+  <p><strong>Description: </strong><%= @post.description%></p>
+
+
+  <% end %>
