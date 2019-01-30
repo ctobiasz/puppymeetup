@@ -54,6 +54,16 @@ end
    end
   end
 
+  def destroy
+  @post = Post.find(params[:id])
+    respond_to do |format|
+     format.html { redirect_to posts_url, notice: 'Post was successfully deleted' }
+     format.js
+   end
+   @post.destroy
+  end
+
+
   private
 
   def post_params
