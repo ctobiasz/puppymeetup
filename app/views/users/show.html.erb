@@ -13,7 +13,14 @@
  allowfullscreen>
 </iframe>
 
+<br>
 
+<% @user.posts.each do |post|%>
+<p> = = = = = = = =</p>
+<%= image_tag (post.picture) if post.picture.attached? %><br>
+<%= post.name %><br>
+<%= post.description %><br>
+<% end %>
 
 
 

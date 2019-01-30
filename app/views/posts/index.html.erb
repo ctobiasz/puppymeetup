@@ -1,9 +1,14 @@
-<h1>Puppy Date Galore!</h1>
+<h1>All Puppy Date Requests!</h1>
+<br>
+<br>
+<br>
 
 
+<p>
 <% @posts.each do |post|%>
-
-<%= post.name %>
-<%= post.description %>
-
+<%= post.picture %><br>
+<%= post.name %><br>
+<%= post.description %><br>
+<%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
+<br>
 <% end %>
