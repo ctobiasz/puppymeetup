@@ -20,9 +20,9 @@
 <%= image_tag (post.picture) if post.picture.attached? %><br>
 <%= post.name %><br>
 <%= post.description %><br>
+
+<%= link_to 'Edit Post', edit_post_path(post) %>
 <% end %>
-
-
 
 
 

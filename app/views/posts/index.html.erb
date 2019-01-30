@@ -6,9 +6,15 @@
 
 <p>
 <% @posts.each do |post|%>
-<%= post.picture %><br>
+<%= image_tag (post.picture) if post.picture.attached? %><br>
 <%= post.name %><br>
 <%= post.description %><br>
-<%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
+
+ <% unless session[:user_id] == post.user.id %>
+
+  <%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
+
+ <% end %>
+<br>
 <br>
 <% end %>

@@ -1,3 +1,7 @@
   <%if session[:user_id] == @post.user.id%>
-     <%= edit_post_path(@post.id) %>
+
+  <p><strong>Title: </strong><%= @post.name %></p>
+  <p><strong>Description: </strong><%= @post.description%></p>
+
+
   <% end %>

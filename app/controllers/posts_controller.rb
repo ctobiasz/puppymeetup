@@ -27,17 +27,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if logged_in?
     @post =  Post.find_by(id: params[:id])
-    if current_user.id != @user.id
-      redirect_to root_path
-    end
+  else
+    redirect_to root_path
   end
+end
 
   def update
     @post = Post.find_by(id: params[:id])
       if @post.update(post_edit_params)
         flash[:notice] = "Sweet! Post is now looking better than ever!"
-        redirect_to @post
+        redirect_to user_path
       else
         puts "#{@post.errors.messages}"
         render 'new'
