@@ -46,6 +46,9 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = "User updated"
        redirect_to @user
+    else
+      puts "#{@user.errors.messages}"
+      render 'new'
     end
   end
 

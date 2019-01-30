@@ -16,6 +16,10 @@
 </p>
 
 <p>
-<%= post.submit "Playtime Activate" %>
+  <%= post.text_field :location_string, placeholder: "Type Meet-up Location Here" %>
+</p>
+
+<p>
+<%= post.submit "Submit" %>
 </p>
 <% end %>
