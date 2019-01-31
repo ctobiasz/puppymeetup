@@ -302,4 +302,10 @@ border: 1px solid black;
 }
 
 
-/**/
+/* POSTS NEW */
+
+
+.posts-new {
+  text-align: center;
+  padding: 20px;
+}

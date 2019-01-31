@@ -46,6 +46,7 @@ end
   end
 
   def index
+    p ActiveStorage
     if current_user != nil
      # @post = Post.paginate(page: params[:page], per_page: 20)
      @posts  = Post.all
