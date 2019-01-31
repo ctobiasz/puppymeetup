@@ -1,17 +1,32 @@
+<style>
+img {
+  height: 200px;
+  width: 300px;
+}
+</style>
+
+
 <h1>All Puppy Date Requests!</h1>
 <br>
 <br>
 <br>
 
 
-<p>
-<% @posts.each do |post|%>
-<%= image_tag (post.picture) if post.picture.attached? %><br>
-<%= post.name %><br>
-<%= post.description %><br>
-<%= post.location_string%><br>
+<% @posts.reverse.each do |post|%>
 
-<% pocprofi = Location.create(address: post.location_string )%>
+<div class="post-grid-container">
+
+  <div class="post-grid-column-one">
+<%= image_tag (post.picture) if post.picture.attached? %><br>
+</div>
+
+<div class="post-grid-column-two">
+ TITLE: <%= post.name %><br>
+ DESCRIPTION: <%= post.description %><br>
+ LOCATION:<%= post.location_string%><br>
+</div>
+<div class="post-grid-column-three">
+ <% pocprofi = Location.create(address: post.location_string )%>
 
 <iframe width="300" height="300" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
@@ -23,6 +38,11 @@ allowfullscreen>
   <%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
 
  <% end %>
+
+</div>
+</div>
+
+
 <br>
 <br>
 <% end %>

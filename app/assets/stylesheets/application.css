@@ -28,7 +28,7 @@
   box-sizing: border-box;
     //display: block;
 
-    height: 100vh;
+    height: 100%;
     margin-left:  400px;
     margin-right:  400px;
     background-color: whitesmoke;
@@ -137,6 +137,11 @@ body {
 
 /* FRONT PAGE */
 
+.account-options {
+  text-align: center;
+  padding: 10px;
+}
+
 #home-page-hero-text {
   font-family: 'Bungee', cursive;
   color: black;
@@ -163,7 +168,7 @@ body {
     width: 50%;
     padding: 10px;
     padding-left: 11%;
-    height: 300px; /* Should be removed. Only for demonstration */
+    height: 300px;
   }
 
 #comment_bubble {
@@ -263,3 +268,38 @@ font-weight: bold;
 margin-bottom: 30px;
 border-bottom: 1px solid white;
  }
+
+
+ /* USER SHOW */
+
+ .user-profile-look {
+   font-family: 'Baloo', sans-serif;
+   text-decoration: underline;
+ }
+ .user-stats {
+   border-bottom: 1px solid black;
+ }
+
+.account-page-look {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+/* POSTS */
+
+.post-grid-container {
+display: grid;
+grid-template: 100% /  30% 30% 30%;
+justify-content: center;
+border: 1px solid black;
+}
+
+.post-grid-column-one {
+
+}
+
+
+/**/

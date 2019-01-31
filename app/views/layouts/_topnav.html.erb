@@ -10,7 +10,7 @@
         <%= link_to "Home", root_path, :class =>"nav-links" %>
       </li>
       <li>
-        <%= link_to "Posts", new_post_path, :class =>"nav-links" %>
+        <%= link_to "Posts", posts_url, :class =>"nav-links" %>
       </li>
       <li>
         <%= link_to "Messenger",  user_chats_path(session[:user_id]), :class =>"nav-links" %>
