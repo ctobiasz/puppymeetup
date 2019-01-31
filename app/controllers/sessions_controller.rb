@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 def new
   if !logged_in?
     @user = User.new
-    render 'new'
   end
 end
 
