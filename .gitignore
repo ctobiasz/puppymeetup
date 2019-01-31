@@ -32,3 +32,4 @@
 
 
 /initializers/geocoder.rb
+/config/secrets/*
