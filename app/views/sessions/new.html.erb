@@ -1,41 +1,33 @@
 <% provide(:title, "Log in") %>
 <html>
-<body class="login-body">
+<body>
 
-  <div class="login-container">
+  <div>
+    <div>
 
-    <div class="login-box">
-
-      <h1 class="login-page-header" style="font-family: 'Baloo', cursive;"><i class="fas fa-bone"></i> PuppyDate
-        <i class="fas fa-bone"> </i></h1>
+      <h1> PuppyDate</h1>
 
       <%= form_for(:session, url: login_path) do |f| %>
 
 
-      <div class="casing-bone">
-
+      <div>
         <%= f.label :email %>
-
         <p>
-          <div class="bone">  <%= f.email_field :email, class: "stick" , id: "input-field-login", placeholder: "Email" %> </div>
+          <div>  <%= f.email_field :email, class: "stick" , id: "input-field-login", placeholder: "Email" %> </div>
         </p>
 
         <%= f.label :password %>
 
         <p>
-          <div class="bone"><%= f.password_field :password, class: "stick", id: "input-field-login", placeholder: "Password" %> </div>
+          <div ><%= f.password_field :password, class: "stick", id: "input-field-login", placeholder: "Password" %> </div>
         </p>
-
       </div>
-
-      <br>
-
       <p>
         <%=   f.submit "Log in", class: "submit-button" %>
       </p>
       <% end %>
 
-      <p>New user? <%= link_to "Sign up now!", signup_path, class: "sign-up-link"%></p>
+      <p>New user? <%= link_to "Sign up now!", signup_path, class: ""%></p>
     </div>
   </div>
 </body>

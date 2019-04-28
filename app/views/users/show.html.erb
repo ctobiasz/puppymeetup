@@ -1,6 +1,4 @@
-
 <div>
-
   <h1> IT'S A GREAT DAY FOR A WALK! </h1><br>
   <%= image_tag(@user.avatar) if @user.avatar.attached?%>
     <p>First Name: <%= @user.first_name %></p>
@@ -15,10 +13,6 @@
     allowfullscreen>
     </iframe>
 </div>
-
-
-<br>
-
 <% @user.posts.reverse.each do |post|%>
 
 <div>

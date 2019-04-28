@@ -1,28 +1,35 @@
 <%if logged_in?%>
 
-  <nav class="navbar">
-    <span class="navbar-toggle" id="js-navbar-toggle">
-            <i class="fas fa-bars"></i>
-        </span>
-    <a href="" class="logo">PUPPYDATE <i class="fas fa-bone"></i></a>
-    <ul class="main-nav" id="js-menu">
-      <li>
-        <%= link_to "Home", root_path, :class =>"nav-links" %>
-      </li>
-      <li>
-        <%= link_to "Posts", posts_url, :class =>"nav-links" %>
-      </li>
-      <li>
-        <%= link_to "Messenger",  user_chats_path(session[:user_id]), :class =>"nav-links" %>
-        </li>
-      <li>
-        <%= link_to "Account", user_path(session[:user_id]), :class =>"nav-links" %>
-      </li>
-      <li>
-        <%= link_to "Logout", "/logout", :class =>"nav-links", method: :delete %>
-      </li>
-    </ul>
+    <div id="home">
+      <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a href="#" class="navbar-brand"><span id="logo">Puppy<i>Meet</i></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+    	 <ul class="navbar-nav ml-auto">
+    		<li class="nav-item">
+          <%= link_to "Home", root_path, :class =>"nav-link" %>
+    		</li>
+    		<li class="nav-item">
+    			<%= link_to "Posts", posts_url, :class =>"nav-link" %>
+    		</li>
+    		<li class="nav-item">
+    			<%= link_to "Messenger", user_chats_path(session[:user_id]), :class =>"nav-link" %>
+    		</li>
+    		<li class="nav-item">
+    			<%= link_to "Account", user_path(session[:user_id]), :class =>"nav-link" %>
+    		</li>
+    		<li class="nav-item">
+    			<%= link_to "Logout", "/logout", :class =>"nav-link", method: :delete %>
+    		</li>
+    	 </ul>
+    </div>
   </nav>
+</div>
+
 
   <% end %>
 
