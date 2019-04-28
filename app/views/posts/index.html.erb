@@ -1,9 +1,4 @@
-<style>
-img {
-  height: 200px;
-  width: 300px;
-}
-</style>
+
 
 
 <h1>All Puppy Date Requests!</h1>
@@ -14,26 +9,26 @@ img {
 
 <% @posts.reverse.each do |post|%>
 
-<div class="post-grid-container">
+<div>
 
-  <div class="post-grid-column-one">
-<%= image_tag(post.picture) if post.picture.attached? %><br>
-</div>
+ <div>
+   <%= image_tag(post.picture) if post.picture.attached? %><br>
+ </div>
 
-<div class="post-grid-column-two">
+<div>
  TITLE: <%= post.name %><br>
  DESCRIPTION: <%= post.description %><br>
  LOCATION:<%= post.location_string%><br>
 </div>
-<div class="post-grid-column-three">
- <% pocprofi = Location.create(address: post.location_string )%>
+<div>
+  <% pocprofi = Location.create(address: post.location_string )%>
 
-<iframe width="300" height="300" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
-allowfullscreen>
-</iframe>
+  <iframe width="300" height="300" frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
+  allowfullscreen>
+  </iframe>
 
- <% unless session[:user_id] == post.user.id %>
+  <% unless session[:user_id] == post.user.id %>
 
   <%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
 
@@ -42,7 +37,4 @@ allowfullscreen>
 </div>
 </div>
 
-
-<br>
-<br>
 <% end %>
