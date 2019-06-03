@@ -19,6 +19,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
+
 * {
   text-decoration: none! important;
 }
@@ -61,14 +62,24 @@ img {
   z-index: 2;
 }
 
+.danger-text {
+  color: rgb(147, 17, 22) !important;
+  text-decoration: none! important;
+}
+.hover-effect:hover {
+  background-color: lightblue;
+}
+
+.a-color {
+  font-family: 'Baloo', sans-serif;
+}
+
+.hover-effect:hover, .a-color:hover {
+    color: white;
+}
+
 @media only screen and (min-width: 100px) and (max-width: 700px) {
     .container-margin {
         margin-top: 25%;
     }
-}
-
-/* ALL THINGS USER */
-.danger-text {
-  color: rgb(147, 17, 22) !important;
-  text-decoration: none! important;
 }
