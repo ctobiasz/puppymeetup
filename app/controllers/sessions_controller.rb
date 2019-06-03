@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-layout false
+# layout false
 
 def new
   if !logged_in?

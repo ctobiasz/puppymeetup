@@ -20,292 +20,50 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
 
+* > h1, p, .btn, #logo, .nav-item {
+  font-family: 'Baloo', sans-serif !important;
+}
 
 
-/* ===== TOP NAV ===== */
+/* LOGIN AND SIGNUP */
 
-.container{
+.container-margin {
+  margin-top: 13%;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.form-signin .form-control {
+  position: relative;
   box-sizing: border-box;
-    //display: block;
-
-    height: 100%;
-    margin-left:  400px;
-    margin-right:  400px;
-    background-color: whitesmoke;
-    border-left: 1px solid rgb(179, 179, 179);
-    border-right: 1px solid rgb(179, 179, 179);
-}
-
- img:not('#bone-hero') {
-   width: 250px;
-   height: 200px;
- }
-
- * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-}
-
-.navbar {
-  font-size: 18px;
-  background-image: linear-gradient(260deg, rgb(57, 142, 78) 0%, #6a6a6a 100%);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 10px;
-}
-
-.main-nav {
-  list-style-type: none;
-  display: none;
-}
-
-.nav-links,
-.logo {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.main-nav li {
-  text-align: center;
-  margin: 15px auto;
-}
-
-.logo {
-  font-family: "Baloo", cursive;
-  display: inline-block;
-  font-size: 30px;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-
-.navbar-toggle {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 24px;
-}
-
-.active {
-  display: block;
-}
-
-@media screen and (min-width: 768px) {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
-    height: 70px;
-    align-items: center;
-  }
-
-  .main-nav {
-    display: flex;
-    margin-right: 30px;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .main-nav li {
-    margin: 0;
-  }
-
-  .nav-links {
-    margin-left: 40px;
-  }
-
-  .logo {
-    margin-top: 0;
-  }
-
-  .navbar-toggle {
-    display: none;
-  }
-
-  .logo:hover,
-  .nav-links:hover {
-    text-decoration: overline;
-    color: rgba(255, 255, 255, 1);
-  }
-}
-
-
-/* FRONT PAGE */
-
-.account-options {
-  text-align: center;
+  height: auto;
   padding: 10px;
+  font-size: 16px;
 }
 
-#home-page-hero-text {
-  font-family: 'Bungee', cursive;
-  color: black;
-  font-size: 2em;
-  text-align: center;
-  vertical-align: center;
-  align-items: center;
-  padding-top: 20px;
-  box-sizing: content-box;
-  border-bottom: 3px solid black;
+.form-signin .form-control:focus {
+  z-index: 2;
 }
 
-#home-page-herothree-text {
-  text-align: center;
-  align-items: center;
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.front-page-grid-row {
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.home-page-grid-column {
-    margin-top: 25%;
-    float: left;
-    width: 50%;
-    padding: 10px;
-    padding-left: 11%;
-    height: 300px;
-  }
-
-#comment_bubble {
-    width: 300px;
-    height: 200px;
-    background-image: linear-gradient(180deg, rgb(37, 129, 213) 0%, #6a6a6a 100%);    position: relative;
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    border-radius: 12px;
-    font-family: 'Bungee', cursive;
-    color: white;
-    text-align: center;
-    vertical-align: center;
-    border: 4px solid rgb(42, 42, 42);
-    font-size: 3.5em;
-    text-decoration: underline;
-    bottom: 15px;
-}
-#comment_bubble-two {
-    width: 300px;
-    height: 200px;
-    background-image: linear-gradient(180deg, rgb(37, 129, 213) 0%, #6a6a6a 100%);
-    position: relative;
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    border-radius: 12px;
-    font-family: 'Bungee', cursive;
-    color: white;
-    text-align: center;
-    vertical-align: center;
-    border: 4px solid rgb(42, 42, 42);
-    font-size: 3.5em;
-    text-decoration: underline;
-    left: 12px;
-    bottom: 15px;
-}
-
-
-/* LOG-IN FORM */
-
-.login-body {
-margin: 0;
-padding: 0;
-font-family:'Poppins', sans-serif !important;
-background: #34495e;
-}
-
-
-.login-box {
-width: 400px;
-position:absolute;
-top: 50;
-left: 50%;
-transform: translate(-50%, -50%);
-text-align: center;
-padding: 40px;
-background: #e74c3c;
-color: white;
-border: 1px solid rgb(255, 255, 255);
-}
-
-.submit-button {
-background-color: #ecf0f1;
-border: 0;
-display: block;
-margin: 20px auto;
-text-align: center;
-border: 2px solid whitesmoke;
-padding: 14px 40px;
-outline: none;
-border-radius: 24px;
-transition: 0.25s;
-cursor: pointer;
-margin-top: 30px;
-}
-
-.submit-button:hover{
-background: #94a78f;
-color: white;
-width: 300px;
- }
-
-
- .login-box label {
-text-decoration: underline;
- }
-
-
-#login-tab {
-width:100%;
-background: white
-}
-
- .login-page-header {
-font-family: 'Poppins', sans-serif !important;
-font-weight: bold;
-margin-bottom: 30px;
-border-bottom: 1px solid white;
- }
-
-
- /* USER SHOW */
-
- .user-profile-look {
-   font-family: 'Baloo', sans-serif;
-   text-decoration: underline;
- }
- .user-stats {
-   border-bottom: 1px solid black;
- }
-
-.account-page-look {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-
-/* POSTS */
-
-.post-grid-container {
-display: grid;
-grid-template: 100% /  30% 30% 30%;
-justify-content: center;
-border: 1px solid black;
-}
-
-.post-grid-column-one {
-
-}
-
-
-/* POSTS NEW */
-
-
-.posts-new {
-  text-align: center;
-  padding: 20px;
+@media only screen and (min-width: 100px) and (max-width: 700px) {
+    .container-margin {
+        margin-top: 25%;
+    }
 }
