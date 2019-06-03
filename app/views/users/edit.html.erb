@@ -1,24 +1,18 @@
-<h1>Edit Account</h1>
-
-<%= form_for(@user) do |u| %>
-
-  <%= u.text_field :first_name, placeholder: "First Name"%><br>
-
-  <%= u.text_field :last_name, placeholder: "Last Name" %><br>
-
-  <%= u.text_field :username, placeholder: "Username" %><br>
-
-  <%= u.email_field :email, placeholder: "Email" %><br>
-
-  <%= u.password_field :password, placeholder: "Password" %><br>
-
-  <%= u.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
-
-  <%= u.file_field :avatar %><br>
-
-  <%= u.text_field :location_string %>
-
- <p>
-   <%= u.submit %>
- </p>
-<% end %>
+<div class="container mx-auto container-margin">
+  <h1 class="font-weight-normal text-center mb-3">Edit</h1>
+  <div class="row">
+    <div class="col-md-12 form-signin ">
+      <%= form_for(@user) do |u| %>
+        <div class="form-signin"><%= u.text_field :first_name, placeholder: "First Name", class: "form-control"%></div>
+        <div class="form-signin"><%= u.text_field :last_name, placeholder: "Last Name", class: "form-control" %></div>
+        <div class="form-signin"><%= u.text_field :username, placeholder: "Username", class: "form-control" %></div>
+        <div class="form-signin"><%= u.email_field :email, placeholder: "Email", class: "form-control" %></div>
+        <div class="form-signin"><%= u.password_field :password, placeholder: "Password", class: "form-control" %></div>
+        <div class="form-signin"><%= u.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control" %></div>
+        <div class="form-signin"><%= u.file_field :avatar, class: "form-control" %></div>
+        <div class="form-signin"><%= u.text_field :location_string, class: "form-control" %></div>
+        <div class="form-signin"> <%= u.submit class: "btn btn-lg btn-primary btn-block special-btn-color" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
