@@ -19,9 +19,20 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
+* {
+  text-decoration: none! important;
+}
 
 * > h1, p, .btn, #logo, .nav-item {
   font-family: 'Baloo', sans-serif !important;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+}
+.hr-color {
+  background-color: rgb(162, 162, 162);
 }
 
 
@@ -50,20 +61,14 @@
   z-index: 2;
 }
 
-/* .form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-} */
-
 @media only screen and (min-width: 100px) and (max-width: 700px) {
     .container-margin {
         margin-top: 25%;
     }
+}
+
+/* ALL THINGS USER */
+.danger-text {
+  color: rgb(147, 17, 22) !important;
+  text-decoration: none! important;
 }

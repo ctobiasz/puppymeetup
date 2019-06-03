@@ -1,64 +1,70 @@
-<style>
-img {
-  height: 200px;
-  width: 300px;
-}
-</style>
-
-
-
-<div class="account-page-look">
-
-  <h1 class="user-profile-look"> IT'S A GREAT DAY FOR A WALK! </h1><br>
-<%= image_tag(@user.avatar) if @user.avatar.attached?%>
-<br>
-<p class= "user-stats">First Name: <%= @user.first_name %></p>
-<p class= "user-stats">Last Name: <%= @user.last_name %></p>
-<p class= "user-stats">Email: <%= @user.email %></p>
-<p class= "user-stats">Your Location: <%= @user.location_string %></p>
-
-<% locprofi = Location.create(address: @user.location_string )%>
-
-<iframe width="300" height="300" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= locprofi.latitude %>,<%= locprofi.longitude %>"
-allowfullscreen>
-</iframe>
+<div class="jumbotron container-margin">
+  <div class="container text-center">
+    <h1 class="display-4 underline">Account Settings</h1>
+  </div>
 </div>
 
-
-<br>
-
-<% @user.posts.reverse.each do |post|%>
-
-<div class="post-grid-container">
-
-  <div class="post-grid-column-one">
-<%= image_tag (post.picture) if post.picture.attached? %><br>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-4">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action"><%= image_tag(@user.avatar) if @user.avatar.attached?%></p>
+          <p class="list-group-item list-group-item-action">First Name: <%= @user.first_name %></p>
+          <p class="list-group-item list-group-item-action">Last Name: <%= @user.last_name %></p>
+          <p class="list-group-item list-group-item-action">Email: <%= @user.email %></p>
+          <p class="list-group-item list-group-item-action">Your Location: <%= @user.location_string %></p>
+        </div>
+      </div>
+      <div class="col-md-4" style="margin: 0;">
+        <% locprofi = Location.create(address: @user.location_string )%>
+        <iframe width="300" height="300" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= locprofi.latitude %>,<%= locprofi.longitude %>"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="col-lg-4">
+      <div class="list-group text-center">
+        <p class="list-group-item list-group-item-action list-group-item-info"><%= link_to "Find a Date", new_post_path %></p>
+        <p class="list-group-item list-group-item-action list-group-item-warning">  <%= link_to 'Edit Account', edit_user_path %></p>
+        <p class="list-group-item list-group-item-action list-group-item-danger"><%= link_to "Delete Your Account", @user, class:"danger-text",method: :delete,
+        data: { confirm: "YOU CANNOT REVERSE THIS.  Are you sure you want to do this?" } %></p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="post-grid-column-two">
-TITLE: <%= post.name %><br>
-DESCRIPTION: <%= post.description %><br>
-LOCATION: <%= post.location_string%>
+
+<div class="jumbotron mt-5">
+  <div class="container text-center">
+    <h1 class="display-4 underline">Your Posts</h1>
+  </div>
 </div>
-<div class="post-grid-column-three">
-<% pocprofi = Location.create(address: post.location_string )%>
 
-<iframe width="300" height="300" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
-allowfullscreen>
-</iframe>
-</div>
-</div>
-<%= link_to 'Edit Post', edit_post_path(post) %>
-<%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %>
-<% end %>
+<div class="container">
+  <% @user.posts.reverse.each do |post|%>
+  <div class="row">
+      <div class="col-lg-4">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action"><%= image_tag (post.picture) if post.picture.attached? %></p>
+          <p class="list-group-item list-group-item-action">Title: <%= post.name %></p>
+          <p class="list-group-item list-group-item-action">Description: <%= post.description %></p>
+          <p class="list-group-item list-group-item-action">Location: <%= post.location_string%></p>
+        </div>
+      </div>
+      <div class="col-md-4" style="margin: 0;">
+        <% pocprofi = Location.create(address: post.location_string )%>
 
-
-
-<div class="account-options">
-<%= link_to 'Edit Account', edit_user_path %>
-<%= link_to "Delete Your Account", @user, method: :delete,
-                                    data: { confirm: "YOU CANNOT REVERSE THIS.  Are you sure you want to do this?" } %>
-<%= link_to "Find a Pup", new_post_path %>
-<%= link_to "Log out", "/logout", method: :delete %>
+        <iframe width="300" height="300" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="col-lg-4">
+      <div class="list-group text-center">
+        <p class="list-group-item list-group-item-action list-group-item-info"><%= link_to 'Edit Post', edit_post_path(post) %></p>
+        <p class="list-group-item list-group-item-action list-group-item-danger"><%= link_to "Delete", post, class:"danger-text", method: :delete, data: { confirm: "You sure?" } %></p>
+      </div>
+    </div>
+  </div>
+  <hr class="hr-color">
+  <% end %>
 </div>
