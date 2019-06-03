@@ -1,1 +1,5 @@
-<p><%= message.user.username %>: <%=message.content%></p>
+<div class="bubble">
+<p>
+  <%= message.user.username.capitalize %>: <%=message.content%><br>
+<span>Sent: <%= message.created_at.strftime('%b %d, %C%y %r') %></span></p>
+</div>

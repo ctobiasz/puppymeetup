@@ -19,6 +19,8 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
+/* two spaces == new section */
+
 
 * {
   text-decoration: none! important;
@@ -37,10 +39,12 @@ img {
 }
 
 
-/* LOGIN AND SIGNUP */
-
 .container-margin {
-  margin-top: 10%;
+  margin-top: 5rem !important;
+}
+
+.jumbotron-margin {
+  margin-top: 5rem !important;
 }
 
 .form-signin {
@@ -71,15 +75,52 @@ img {
 }
 
 .a-color {
-  font-family: 'Baloo', sans-serif;
+  font-family: 'Baloo', sans-serif !important;
 }
 
 .hover-effect:hover, .a-color:hover {
-    color: white;
+    color: white !important;
+}
+
+.message-color:hover {
+  background-color: lightblue !important;
+  color: white;
+}
+
+.message-font-color:hover {
+  color: white;
+}
+
+
+.msg-box {
+  background-color: #343a40 !important;
+  padding: 2%;
+  height: 50%;
+  border: 1px solid #677077;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+  text-align: center;
+}
+
+#messages {
+  padding: 2%;
+  font-size: 1.3em;
+  color: #252839;
+}
+
+.bubble {
+  position: relative;
+	border-radius: .4em;
+  border: 1px solid #252839;
+  padding-left: 2%;
+  margin-bottom: 3%;
+}
+
+.bubble span {
+  font-size: .7em;
 }
 
 @media only screen and (min-width: 100px) and (max-width: 700px) {
-    .container-margin {
-        margin-top: 25%;
-    }
+  .container-margin {
+    margin-top: 25%;
+  }
 }
