@@ -1,27 +1,14 @@
-<h1>Let's make some friends!</h1>
-
-
-<%= form_for(@post) do |post| %>
-
-<p>
-<%= post.text_field :name, placeholder: "ex. Puppy needs a new friend!"%>
-</p>
-
-<p>
-<%= post.text_area :description, placeholder: "Where do you wanna go and/or meetup. What does your pupper like to do?"%>
-</p>
-
-<p>
-  <%= post.text_field :location_string, placeholder: "Where would you like to meet?" %>
-</p>
-
-<p>
-  <!-- direct_upload: true, id: "fileupload" -->
-<%= post.file_field :picture  %>
-</p>
-
-
-<p>
-<%= post.submit "Submit" %>
-</p>
-<% end %>
+<div class="container mx-auto container-margin">
+  <h1 class="font-weight-normal text-center mb-3">Create a Posting</h1>
+  <div class="row">
+    <div class="col-md-12 form-signin ">
+      <%= form_for(@post) do |post| %>
+        <div class="form-signin"><%= post.text_field :name, placeholder: "ex. Puppy needs a new friend!", class: "form-control" %></div>
+        <div class="form-signin"><%= post.text_area :description, placeholder: "Where do you wanna go and/or meetup. What does your pupper like to do?", class: "form-control" %></div>
+        <div class="form-signin"><%= post.text_field :location_string, placeholder: "Where would you like to meet?", class: "form-control" %></div>
+        <div class="form-signin"><%= post.file_field :picture, class: "form-control" %></div>
+        <div class="form-signin"><%= post.submit class: "btn btn-lg btn-primary btn-block special-btn-color" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

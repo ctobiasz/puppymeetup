@@ -1,48 +1,44 @@
-<style>
-img {
-  height: 200px;
-  width: 300px;
-}
-</style>
-
-
-<h1>All Puppy Date Requests!</h1>
-<br>
-<br>
-<br>
-
-
-<% @posts.reverse.each do |post|%>
-
-<div class="post-grid-container">
-
-  <div class="post-grid-column-one">
-<%= image_tag(post.picture) if post.picture.attached? %><br>
+<div class="jumbotron container-margin">
+  <div class="container text-center">
+    <h1 class="display-4 underline">All Postings</h1>
+  </div>
 </div>
 
-<div class="post-grid-column-two">
- TITLE: <%= post.name %><br>
- DESCRIPTION: <%= post.description %><br>
- LOCATION:<%= post.location_string%><br>
+<div class="container">
+  <% @posts.reverse.each do |post|%>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="list-group">
+        <p class="list-group-item list-group-item-action"><%= image_tag (post.picture) if post.picture.attached? %></p>
+        <p class="list-group-item list-group-item-action">Title: <%= post.name %></p>
+        <p class="list-group-item list-group-item-action">Description: <%= post.description %></p>
+        <p class="list-group-item list-group-item-action">Location: <%= post.location_string%></p>
+      </div>
+    </div>
+    <div class="col-md-4" style="margin: 0;">
+      <% pocprofi = Location.create(address: post.location_string )%>
+      <iframe width="300" height="300" frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
+      allowfullscreen>
+      </iframe>
+  </div>
+
+  <% if session[:user_id] == post.user.id %>
+  <div class="col-lg-4">
+    <div class="list-group text-center">
+      <p class="list-group-item list-group-item-action list-group-item-warning"><%= link_to 'Edit Post', edit_post_path(post) %></p>
+    </div>
+  </div>
+  <% end %>
+  <% unless session[:user_id] == post.user.id %>
+
+  <div class="col-lg-4">
+    <div class="list-group text-center">
+      <p class="list-group-item list-group-item-action list-group-item-info"><%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <hr class="hr-color">
+  <% end %>
 </div>
-<div class="post-grid-column-three">
- <% pocprofi = Location.create(address: post.location_string )%>
-
-<iframe width="300" height="300" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= pocprofi.latitude %>,<%= pocprofi.longitude %>"
-allowfullscreen>
-</iframe>
-
- <% unless session[:user_id] == post.user.id %>
-
-  <%= link_to("Contact User", user_chats_path(current_user, :other_user => post.user.id, :post => post.id), method: :post) %><br>
-
- <% end %>
-
-</div>
-</div>
-
-
-<br>
-<br>
-<% end %>
