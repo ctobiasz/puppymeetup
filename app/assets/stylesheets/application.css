@@ -26,7 +26,7 @@
   text-decoration: none! important;
 }
 
-* > h1, p, .btn, #logo, .nav-item {
+h1, p, .btn, #logo, .nav-item {
   font-family: 'Baloo', sans-serif !important;
 }
 
