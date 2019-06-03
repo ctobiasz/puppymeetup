@@ -1,23 +1,22 @@
-
-
 <div class="container mx-auto container-margin">
     <div class="row">
       <div class="col-md-12 form-signin">
         <h1 class="font-weight-normal text-center mb-3">Sign up!</h1>
         <%= form_for(@user) do |u| %>
+        
           <div class="form-signin"><%= u.text_field :first_name, placeholder: "First Name", class: "form-control"%></div>
           <div class="form-signin"><%= u.text_field :last_name, placeholder: "Last Name", class: "form-control"%></div>
           <div class="form-signin"><%= u.text_field :username, placeholder: "Username", class: "form-control"%></div>
           <div class="form-signin"><%= u.email_field :email, placeholder: "Email", class: "form-control"%></div>
           <div class="form-signin"><%= u.password_field :password, placeholder: "Password", class: "form-control"%></div>
           <div class="form-signin"><%= u.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control"%></div>
-          <div class="form-signin"><%= u.text_field :location_string, placeholder: "Your Location", class: "form-control"%></div>
+          <div class="form-signin"><%= u.text_field :location_string, placeholder: "Your Location EX: Brooklyn, NY", class: "form-control"%></div>
           <div class="form-signin"><%= u.file_field :avatar, class: "form-control"%></div>
-          <div class="form-signin"><%= u.submit class: "submit-button" %></div>
+          <div class="form-signin"><%= u.submit class: "btn btn-lg btn-primary btn-block" %></div>
         <% end %>
       </div>
           <div class="form-signin sign-up-now text-center">
-          <p>Already have an account? &nbsp <%= link_to "Login now!", login_path%></p>
+            <p>Already have an account? &nbsp <%= link_to "Login now!", login_path%></p>
           </div>
     </div>
 </div>
