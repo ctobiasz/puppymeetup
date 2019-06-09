@@ -7,7 +7,7 @@ The idea was to create a full-scale web application that allowed people with dog
 ## Technologies
 
 1) [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)     (Ruby Framework)
-2) [Google Geocoder API](https://developers.google.com/maps/documentation/geocoding/start) (Programming Language)
+2) [Google Geocoder API](https://developers.google.com/maps/documentation/geocoding/start)
 4) [PostgresSQL](https://www.postgresql.org/docs/)                          (database)
 5) [SQLite](https://www.sqlite.org/quickstart.html)                         (local database)
 
