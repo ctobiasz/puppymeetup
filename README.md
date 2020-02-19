@@ -1,7 +1,7 @@
 # PuppyDate
 
 ## Description
-This group project is a full-scale web application that was created to learn Ruby on Rails.
+This project is a full-scale web application that was created to learn Ruby on Rails.
 The idea was to create a full-scale web application that allowed people with dogs to connect via posts and a personal messenger.
 
 ## Technologies
